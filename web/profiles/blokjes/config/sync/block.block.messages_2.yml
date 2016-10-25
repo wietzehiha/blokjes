@@ -1,0 +1,20 @@
+uuid: 3b446634-b454-410b-814e-78e4e1a301ef
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - blokjes_theme
+id: messages_2
+theme: blokjes_theme
+region: content
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }

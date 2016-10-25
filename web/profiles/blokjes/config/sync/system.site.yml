@@ -1,0 +1,12 @@
+uuid: 0c801613-cd95-4bed-bc1f-7ea0ff3d04c0
+name: 'blokjes'
+mail: 'info+blokjes@vdmi.nl'
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en

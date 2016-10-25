@@ -1,0 +1,18 @@
+uuid: 5077029a-771f-4434-ad06-6f3970998137
+langcode: en
+status: true
+dependencies:
+  theme:
+    - blokjes_theme
+id: primaryadminactions
+theme: blokjes_theme
+region: content
+weight: -1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

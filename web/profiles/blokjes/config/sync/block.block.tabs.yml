@@ -1,0 +1,20 @@
+uuid: 1cf2cd3f-7b12-4d22-9902-2fe39e627d51
+langcode: en
+status: true
+dependencies:
+  theme:
+    - blokjes_theme
+id: tabs
+theme: blokjes_theme
+region: header
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

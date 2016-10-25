@@ -1,0 +1,20 @@
+uuid: 042af008-6f69-4053-b900-c71beb6a9856
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - blokjes_theme
+id: mainpagecontent
+theme: blokjes_theme
+region: content
+weight: 1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,46 @@
+<?php
+/**
+* @file
+* Install, update and uninstall functions for the blokjes install profile.
+*/
+
+use Drupal\Component\Serialization\Yaml;
+
+/**
+* Implements hook_install().
+*
+* Perform actions to set up the site for this profile.
+*
+* @see system_install()
+*/
+function blokjes_install() {
+  // First, do everything in standard profile.
+  include_once DRUPAL_ROOT . '/core/profiles/standard/standard.install';
+  standard_install();
+
+  // We need to parse all uuids from deploy dir and override local uuids.
+  // If we don't do this, we run into problems with initial drush config-import.
+  $dir = \Drupal::root() . '/' . config_get_config_directory(CONFIG_SYNC_DIRECTORY) . '/';
+  $files = scandir($dir);
+
+  $configs = \Drupal::configFactory()->listAll();
+
+  foreach($files as $file) {
+    $name = substr($file, 0, -4);
+    $ext = substr($file, -4);
+    if ($ext != '.yml') {
+      continue;
+    }
+    $info = Yaml::decode(file_get_contents($dir . $file));
+    if(is_array($info) && array_key_exists('uuid', $info)) {
+      if(in_array($name, $configs)) {
+        \Drupal::configFactory()
+          ->getEditable($name)
+          ->set('uuid', $info['uuid'])
+          ->save();
+      }
+    }
+  }
+
+  // Can add code in here to make nodes, terms, etc.
+}

@@ -1,0 +1,17 @@
+{
+  "sites": {
+    "blokjes": {
+      "profile": "blokjes",
+      "database": "db_name",
+      "username": "db_username",
+      "password": "db_pass",
+      "host": "db_host",
+      "driver": "mysql",
+      "owner":"owner:group",
+      "site_name": "blokjes",
+      "domains": [
+        "web.blokjes.vdmi"
+      ]
+    }
+  }
+}

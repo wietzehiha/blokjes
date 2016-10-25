@@ -1,0 +1,64 @@
+{
+    "name": "VDMi-Composer/D8-Skeleton",
+    "description": "VDMi Project Skeleton for Drupal 8 projects with composer",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.drupal-composer.org"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.0.20",
+        "drupal-composer/drupal-scaffold": "^2.0.1",
+        "cweagans/composer-patches": "~1.0",
+        "drupal/core": "8.1.10",
+        "drush/drush": "~8.0",
+        "drupal/console": "~1.0",
+        "drupal/drupal-extension": "~3.0",
+        "guzzlehttp/guzzle": "^6.0@dev"
+    },
+    "require-dev": {
+        "behat/mink": "~1.7",
+        "behat/mink-goutte-driver": "~1.2",
+        "jcalderonzumba/gastonjs": "^1.1@dev",
+        "jcalderonzumba/mink-phantomjs-driver": "dev-master#10d7c48c9a4129463052321b52450d98983c4332",
+        "mikey179/vfsStream": "~1.2",
+        "phpunit/phpunit": "~4.8",
+        "symfony/css-selector": "~2.8"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "preferred-install" : "dist",
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "post-install-cmd": "scripts/composer/post-install.sh",
+        "post-create-project-cmd": "DrupalSkeletonInstaller::install"
+    },
+    "autoload": {
+      "psr-0": {
+        "": "./scripts/composer/"
+      }
+    },
+    "extra": {
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "web/drush/commands/{$name}": ["type:drupal-drush"]
+        },
+        "patches": {
+            "drupal/core": {
+                "Allow now using a serializer in REST": "https://www.drupal.org/files/issues/2419825-40.patch"
+            }
+        }
+    }
+}

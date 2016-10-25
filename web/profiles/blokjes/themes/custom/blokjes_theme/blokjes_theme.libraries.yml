@@ -1,0 +1,5 @@
+custom:
+  version: VERSION
+  css:
+    theme:
+      css/custom.css: {}

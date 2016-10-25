@@ -1,0 +1,20 @@
+uuid: 675f3a96-9d6b-41e3-9a00-dd47a2d7d4ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - seven
+id: messages
+theme: seven
+region: content
+weight: -1
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }

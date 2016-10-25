@@ -1,0 +1,47 @@
+name: 'blokjes'
+type: profile
+description: 'blokjes profile.'
+core: 8.x
+
+distribution:
+  name: 'blokjes'
+
+# Required modules
+dependencies:
+  - node
+  - history
+  - block
+  - breakpoint
+  - ckeditor
+  - color
+  - config
+  - contact
+  - menu_link_content
+  - datetime
+  - block_content
+  - editor
+  - entity_reference
+  - help
+  - image
+  - menu_ui
+  - options
+  - path
+  - page_cache
+  - taxonomy
+  - dblog
+  - shortcut
+  - toolbar
+  - field_ui
+  - file
+  - views
+  - views_ui
+
+themes:
+  - seven
+  - classy
+  - blokjes_theme
+
+env_dependencies:
+  development:
+    - devel
+    - kint

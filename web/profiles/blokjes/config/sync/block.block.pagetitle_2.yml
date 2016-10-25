@@ -1,0 +1,18 @@
+uuid: c406b48d-0bfe-40bb-8a00-c0c4d585b774
+langcode: en
+status: true
+dependencies:
+  theme:
+    - blokjes_theme
+id: pagetitle_2
+theme: blokjes_theme
+region: header
+weight: -3
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

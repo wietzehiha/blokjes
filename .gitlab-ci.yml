@@ -1,0 +1,37 @@
+variables:
+  MYSQL_ROOT_PASSWORD: "root"
+  SIMPLETEST_DB: "mysql://root:root@mysql/blokjes"
+  PHP_OPTIONS: "-d sendmail_path=/bin/true -d xdebug.max_nesting_level=256"
+
+stages:
+  - build
+  - test
+
+before_script:
+  - mkdir -p /cache/drush
+  - ln -s /cache/drush ~/.drush
+  - composer config --global github-oauth.github.com $GITLAB_TOKEN
+  - composer config --global cache-dir /cache/composer
+  - composer --version
+  - mysql --version
+
+Composer:
+  stage: build
+  tags:
+    - docker
+  script:
+    - composer install --verbose --ignore-platform-reqs
+
+Install-ConfigImport-PHPUnit:
+  stage: test
+  tags:
+    - docker
+  services:
+  - mysql:5.5
+  script:
+    - composer --verbose install --ignore-platform-reqs
+    - sh scripts/tests/post-install.sh
+    - cd web
+    - ./../vendor/bin/drush sql-create --yes --db-su=root --db-su-pw=root --db-url=$SIMPLETEST_DB
+    - ./../vendor/bin/drush site-install blokjes --verbose --yes --db-url=$SIMPLETEST_DB
+    - ./../vendor/bin/drush config-import --verbose --yes --db-url=$SIMPLETEST_DB

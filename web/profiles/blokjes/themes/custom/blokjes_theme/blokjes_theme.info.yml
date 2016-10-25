@@ -1,0 +1,15 @@
+name: 'blokjes Theme'
+type: theme
+description: 'Theme for blokjes'
+package: Other
+core: 8.x
+libraries:
+  - blokjes_theme/global-styling
+  - blokjes_theme/custom
+regions:
+  header: Header
+  featured: Featured
+  content: Content
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
+  footer: Footer
